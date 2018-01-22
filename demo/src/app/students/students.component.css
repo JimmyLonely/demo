@@ -1,0 +1,21 @@
+.students-container .bold {
+  color: #ccc;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.students-container .little-font {
+  color: #ccc;
+  font-style: italic;
+  font-size: 12px;
+}
+
+form .add-border label{
+  border: 2px solid gray;
+  border-radius: 2px;
+}
+
+form .add-border input{
+  border: 2px solid gray;
+  border-radius: 2px;
+}

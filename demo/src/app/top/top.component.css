@@ -1,0 +1,11 @@
+.top-container .bold {
+  color: #ccc;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.top-container .little-font {
+  color: #ccc;
+  font-style: italic;
+  font-size: 12px;
+}

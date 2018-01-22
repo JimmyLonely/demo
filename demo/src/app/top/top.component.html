@@ -1,0 +1,35 @@
+<div class="top-container">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <span>前</span>
+      <span class="bold">{{students.length}}</span>
+      <span>名学生</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-striped table-hover table-condensed table-bordered">
+          <caption class="little-font">排行榜</caption>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>姓名</th>
+              <th>年龄</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students" (click)="goDetail(student.id)">
+              <td class="success">{{student.id}}</td>
+              <td class="success">{{student.name}}</td>
+              <td class="success">{{student.age}}</td>
+              <td class="success">
+                <input type="button" class="btn btn-xs btn-success" value="查看">
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

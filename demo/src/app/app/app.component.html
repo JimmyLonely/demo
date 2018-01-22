@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <h1>{{title}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <a class="btn-lg" routerLink="students" routerLinkActive="active">学生管理</a>
+        </div>
+        <div class="col-md-2">
+            <a class="btn-lg text-lg" routerLink="top" routerLinkActive="active">排行榜</a>
+        </div>
+        <div class="col-md-2">
+            <a class="btn-lg text-lg" routerLink="about" routerLinkActive="active">关于</a>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
