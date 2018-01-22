@@ -20,24 +20,21 @@ export class StudentsComponent implements OnInit {
   });
 
   title = '学生管理';
-  selectedHero: Student;
+  selectedStudent: Student;
   students: Student[];
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getStudents();
   }
 
-  onSelect(student: Student): void {
-    this.selectedHero = student;
-  }
 
-  getHeroes(): void {
+  getStudents(): void {
     this.studentService.getAll().then(students => {
       this.students = students;
     });
   }
 
-  add(name: string): void {
+  add(): void {
     const formModel = this.studentForm.value;
     const saveStudent: Student = {
       id: formModel.id.trim(),
@@ -53,7 +50,7 @@ export class StudentsComponent implements OnInit {
 
   delete(student: Student): void {
     this.studentService.delete(student).then(respone => {
-      this.students = this.students.filter(h => h !== student);
+      this.students = this.students.filter(s => s !== student);
     })
   }
 }

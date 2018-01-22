@@ -7,10 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // VirtualAPI
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './service/in-memory-data.service';
+import { InMemoryDataService } from './service/in-memory-data.service';
 
 //  Route
-import { AppRoutingModule }  from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 //  Services
 import { StudentService } from './service/student.service';
