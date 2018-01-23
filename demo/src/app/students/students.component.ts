@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../model/student';
 import { StudentService } from '../service/student.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'students',
@@ -10,13 +10,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class StudentsComponent implements OnInit {
   constructor(
-    private studentService: StudentService
+    private studentService: StudentService,
+    private formBuilder: FormBuilder
   ) { }
 
-  studentForm = new FormGroup ({
-    id: new FormControl(),
-    name: new FormControl(),
-    age: new FormControl()
+  studentForm: FormGroup = this.formBuilder.group({
+    id: ['', Validators.required],
+    name: ['', Validators.required],
+    age: ['']
   });
 
   title = '学生管理';
@@ -27,25 +28,31 @@ export class StudentsComponent implements OnInit {
     this.getStudents();
   }
 
-
   getStudents(): void {
     this.studentService.getAll().then(students => {
       this.students = students;
     });
   }
 
-  add(): void {
+  save(): void {
+    if (this.studentForm.invalid) {
+      return;
+    }
     const formModel = this.studentForm.value;
     const saveStudent: Student = {
-      id: formModel.id.trim(),
-      name: formModel.name.trim(),
-      age: formModel.age.trim()
+      id: formModel.id,
+      name: formModel.name,
+      age: formModel.age
     };
 
     this.studentService.create(saveStudent).then(student => {
       this.students.push(saveStudent);
       this.studentForm.reset();
     })
+  }
+
+  reset(): void {
+    this.studentForm.reset();
   }
 
   delete(student: Student): void {
