@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+
+.grad {
+  height: 200vh;
+  /* background: linear-gradient( red , blue); */
+  background-color: #f1fafa;
+}
